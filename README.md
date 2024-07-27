@@ -2,14 +2,14 @@
  
 Planning
 -----------------
-###Backend:  
+### Backend:  
 Sqlite  
 Articles CRUD  
 
-###Frontend:
+### Frontend:
 vite,react,typescript+swc(more faster)
 
-###database
+### database
     public class Article
     {
         [Key]
@@ -21,3 +21,4 @@ vite,react,typescript+swc(more faster)
         public string Content { get; set; }
 
     }
+
