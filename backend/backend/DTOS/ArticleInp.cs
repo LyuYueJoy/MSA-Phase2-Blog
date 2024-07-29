@@ -4,7 +4,6 @@ namespace backend.DTOS
 {
     public class ArticleInp
     {
-        public DateTime ReleaseTime { get; set; }
         [Required]
         public string Author { get; set; }
         [Required]
