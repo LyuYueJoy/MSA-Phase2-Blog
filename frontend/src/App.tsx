@@ -3,6 +3,8 @@ import Navbar from "./Components/navbar/Navbar"
 import {Routes, Route} from "react-router-dom"
 import Home from "./Components/home_page/home"
 import Articles from './Components/Articles/article'
+import AddArticle from './Components/addArticles/addArticle'
+
 function App() {
   return (
     <div>
@@ -15,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/articles">
             <Route index element={<Articles/>} />
+            <Route path="add" element={<AddArticle />}/>
 
           </Route>
         </Routes>
