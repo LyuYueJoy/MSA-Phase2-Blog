@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./addArticle.css";
 import { Button, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom"; // 导入 useNavigate 钩子
+import { useNavigate } from "react-router-dom"; 
 
 const AddArticle: React.FC = () => {
     const [author, setAuthor] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const navigate = useNavigate(); // 使用 useNavigate 钩子
+    const navigate = useNavigate(); 
 
     const handleSave = async () => {
         const article = {
@@ -32,12 +32,11 @@ const AddArticle: React.FC = () => {
             const data = await response.json();
             console.log("Article saved:", data);
 
-            // 清空表单内容
+            // Click Save to clear the form.
             setAuthor("");
             setTitle("");
             setContent("");
 
-            // 导航到其他页面或显示成功消息
             navigate("/articles", { state: { message: "Article Created Successfully" } });
         } catch (error) {
             console.error("Error saving article:", error);
@@ -45,7 +44,7 @@ const AddArticle: React.FC = () => {
     };
 
     const handleBack = () => {
-        navigate("/articles"); // 返回到文章列表页或其他指定页面
+        navigate("/articles"); // back to article page
     };
 
     return (
