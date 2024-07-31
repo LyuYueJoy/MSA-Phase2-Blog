@@ -1,4 +1,3 @@
-// src/Components/Article/ArticleList.tsx
 import React, { useState, useEffect } from "react";
 import { IArticles } from "../../Models/articles";
 import { getArticlessUrl } from "../../APIs/apis";

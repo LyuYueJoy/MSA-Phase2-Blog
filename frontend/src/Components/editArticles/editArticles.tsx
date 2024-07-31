@@ -1,5 +1,5 @@
-import { Button, TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import { Button, TextField, Box, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EditArticle: React.FC = () => {
@@ -53,7 +53,6 @@ const EditArticle: React.FC = () => {
             const data = await response.json();
             console.log("Article updated:", data);
 
-            // Clear the form after updating
             setAuthor("");
             setTitle("");
             setContent("");
@@ -65,12 +64,14 @@ const EditArticle: React.FC = () => {
     };
 
     const handleBack = () => {
-        navigate("/articles"); // Back to article list page
+        navigate("/articles"); 
     };
 
     return (
-        <div>
-            <h2>Edit Article</h2>
+        <Box sx={{ padding: 2, bgcolor: 'background.default', color: 'text.primary' }}>
+            <Typography variant="h4" gutterBottom>
+                Edit Article
+            </Typography>
             <TextField
                 autoComplete="off"
                 label="Author"
@@ -79,6 +80,16 @@ const EditArticle: React.FC = () => {
                 onChange={(e) => setAuthor(e.target.value)}
                 fullWidth
                 margin="normal"
+                InputProps={{
+                    style: {
+                        color: 'text.primary', 
+                    },
+                }}
+                InputLabelProps={{
+                    style: {
+                        color: 'text.secondary', 
+                    },
+                }}
             />
             <TextField
                 autoComplete="off"
@@ -88,6 +99,16 @@ const EditArticle: React.FC = () => {
                 onChange={(e) => setTitle(e.target.value)}
                 fullWidth
                 margin="normal"
+                InputProps={{
+                    style: {
+                        color: 'text.primary',
+                    },
+                }}
+                InputLabelProps={{
+                    style: {
+                        color: 'text.secondary', 
+                    },
+                }}
             />
             <TextField
                 autoComplete="off"
@@ -96,19 +117,29 @@ const EditArticle: React.FC = () => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 multiline
-                rows={10} // Adjust rows as needed
+                rows={10} 
                 fullWidth
                 margin="normal"
+                InputProps={{
+                    style: {
+                        color: 'text.primary', 
+                    },
+                }}
+                InputLabelProps={{
+                    style: {
+                        color: 'text.secondary', 
+                    },
+                }}
             />
-            <div>
+            <Box sx={{ display: 'flex', gap: 2, marginTop: 2 }}>
                 <Button variant="outlined" onClick={handleSave}>
                     Save
                 </Button>
                 <Button variant="outlined" onClick={handleBack}>
                     Back
                 </Button>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
 

@@ -31,7 +31,6 @@ const AddArticle: React.FC = () => {
             const data = await response.json();
             console.log("Article saved:", data);
 
-            // Click Save to clear the form.
             setAuthor("");
             setTitle("");
             setContent("");
@@ -41,14 +40,14 @@ const AddArticle: React.FC = () => {
             console.error("Error saving article:", error);
         }
     };
-
+    // Back to article page
     const handleBack = () => {
-        navigate("/articles"); // back to article page
+        navigate("/articles"); 
     };
 
     return (
-        <Box sx={{ padding: 2 }}>
-            <Typography variant="h4" gutterBottom>
+        <Box sx={{ padding: 2, bgcolor: 'background.default', minHeight: '100vh' }}>
+            <Typography variant="h4" gutterBottom color="text.primary">
                 Add Article
             </Typography>
             <Grid container spacing={2}>
@@ -60,6 +59,17 @@ const AddArticle: React.FC = () => {
                         variant="outlined"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
+                        InputProps={{
+                            style: {
+                                color: 'text.primary',
+                            },
+                        }}
+                        InputLabelProps={{
+                            style: {
+                                color: 'text.secondary',
+                            },
+                        }}
+                        sx={{ minHeight: '100px' }} 
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -70,6 +80,17 @@ const AddArticle: React.FC = () => {
                         variant="outlined"
                         value={author}
                         onChange={(e) => setAuthor(e.target.value)}
+                        InputProps={{
+                            style: {
+                                color: 'text.primary',
+                            },
+                        }}
+                        InputLabelProps={{
+                            style: {
+                                color: 'text.secondary',
+                            },
+                        }}
+                        sx={{ minHeight: '100px' }} 
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -79,9 +100,20 @@ const AddArticle: React.FC = () => {
                         label="Content"
                         variant="outlined"
                         multiline
-                        rows={4}
+                        rows={10} 
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
+                        InputProps={{
+                            style: {
+                                color: 'text.primary',
+                            },
+                        }}
+                        InputLabelProps={{
+                            style: {
+                                color: 'text.secondary',
+                            },
+                        }}
+                        sx={{ minHeight: '300px' }} 
                     />
                 </Grid>
                 <Grid item xs={12}>
