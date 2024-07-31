@@ -4,7 +4,7 @@ import "./article.css";
 import { IArticles } from "../../Models/articles";
 import { getArticlessUrl } from "../../APIs/apis";
 import { Button } from "@mui/material";
-import { Edit } from "@mui/icons-material";
+import { Delete, Edit } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
 const Article: React.FC = () => {
@@ -72,6 +72,9 @@ const Article: React.FC = () => {
                   <td>
                     <Button variant="outlined" onClick={() => editArticles(article.id)}>
                       <Edit />
+                    </Button>
+                    <Button variant="outlined" onClick={() => deleteArticles(article.id)}>
+                      <Delete />
                     </Button>
                   </td>
                 </tr>

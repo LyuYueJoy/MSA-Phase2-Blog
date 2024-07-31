@@ -5,6 +5,7 @@ import Home from "./Components/home_page/home"
 import Articles from './Components/Articles/article'
 import AddArticle from './Components/addArticles/addArticle'
 import EditArticle from './Components/editArticles/editArticles'
+import DeleteArticle from './Components/deleteArticle/deleteArticle'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route index element={<Articles/>} />
             <Route path="add" element={<AddArticle />}/>
             <Route path="edit/:id" element={<EditArticle/>}/>
+            <Route path="delete/:id" element={<DeleteArticle/>}/>
 
           </Route>
         </Routes>
