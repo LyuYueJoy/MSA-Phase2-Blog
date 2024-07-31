@@ -14,7 +14,7 @@ namespace backend.Repositories
         }
         public async Task<IEnumerable<Article>> GetAllArticlesAsync()
         {
-            return await _context.Articles.ToListAsync();
+            return await _context.Articles.OrderByDescending(q => q.CreatedAt).ToListAsync();
         }
 
         public async Task<Article> GetArticleByIdAsync(int id)

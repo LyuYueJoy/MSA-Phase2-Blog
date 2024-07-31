@@ -66,6 +66,7 @@ namespace backend.Controllers
             article.Author = articleUpdateDto.Author;
             article.Title = articleUpdateDto.Title;
             article.Content = articleUpdateDto.Content;
+            article.UpdateAt = DateTime.Now;
 
             await _reop.UpdateArticleAsync(article);
             return Ok(article);
