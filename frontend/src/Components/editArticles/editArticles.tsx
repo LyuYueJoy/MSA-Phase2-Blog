@@ -1,6 +1,6 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EditArticle: React.FC = () => {
     const [author, setAuthor] = useState("");
@@ -77,6 +77,8 @@ const EditArticle: React.FC = () => {
                 variant="outlined"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
+                fullWidth
+                margin="normal"
             />
             <TextField
                 autoComplete="off"
@@ -84,6 +86,8 @@ const EditArticle: React.FC = () => {
                 variant="outlined"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                fullWidth
+                margin="normal"
             />
             <TextField
                 autoComplete="off"
@@ -91,6 +95,10 @@ const EditArticle: React.FC = () => {
                 variant="outlined"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
+                multiline
+                rows={10} // Adjust rows as needed
+                fullWidth
+                margin="normal"
             />
             <div>
                 <Button variant="outlined" onClick={handleSave}>

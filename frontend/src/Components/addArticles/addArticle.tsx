@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import "./addArticle.css";
-import { Button, TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom"; 
+import { Button, TextField, Box, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const AddArticle: React.FC = () => {
     const [author, setAuthor] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleSave = async () => {
         const article = {
@@ -48,38 +47,55 @@ const AddArticle: React.FC = () => {
     };
 
     return (
-        <div>
-            <h2>Add Article</h2>
-            <TextField
-                autoComplete="off"
-                label="Author"
-                variant="outlined"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-            />
-            <TextField
-                autoComplete="off"
-                label="Title"
-                variant="outlined"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            <TextField
-                autoComplete="off"
-                label="Content"
-                variant="outlined"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-            />
-            <div>
-                <Button variant="outlined" onClick={handleSave}>
-                    Save
-                </Button>
-                <Button variant="outlined" onClick={handleBack}>
-                    Back
-                </Button>
-            </div>
-        </div>
+        <Box sx={{ padding: 2 }}>
+            <Typography variant="h4" gutterBottom>
+                Add Article
+            </Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <TextField
+                        fullWidth
+                        autoComplete="off"
+                        label="Title"
+                        variant="outlined"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        fullWidth
+                        autoComplete="off"
+                        label="Author"
+                        variant="outlined"
+                        value={author}
+                        onChange={(e) => setAuthor(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        fullWidth
+                        autoComplete="off"
+                        label="Content"
+                        variant="outlined"
+                        multiline
+                        rows={4}
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                        <Button variant="outlined" onClick={handleSave}>
+                            Save
+                        </Button>
+                        <Button variant="outlined" onClick={handleBack}>
+                            Back
+                        </Button>
+                    </Box>
+                </Grid>
+            </Grid>
+        </Box>
     );
 };
 

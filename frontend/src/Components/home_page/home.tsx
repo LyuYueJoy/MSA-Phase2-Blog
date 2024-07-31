@@ -1,30 +1,28 @@
-import React from 'react'
-import './home.css'
-import {Button} from '@mui/material'
+import React from 'react';
+import { Button, Container, Grid, Typography, Paper } from '@mui/material';
 
-const home: React.FC = () => {
+const Home: React.FC = () => {
   return (
-    <div className='home'>
-        <div className='leftcolumn'>
-            <h1> Welcome to my blog</h1>
-            <Button variant="text">
-                aa
-            </Button>
-        </div>
-
-        <div className='rightcolumn'>
-            <div>
-                aaa
-                aaa
-            </div>
-        </div>
-    
-
-
-
-    </div>
-
-  )
+    <Container maxWidth="lg" sx={{ my: 4 }}>
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={8}>
+          <Paper elevation={3} sx={{ p: 4 }}>
+            <Typography variant="h2" component="h1" gutterBottom>
+              Welcome to my blog
+            </Typography>
+            
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Paper elevation={3} sx={{ p: 4 }}>
+            <Typography variant="body1">
+              aaa aaa
+            </Typography>
+          </Paper>
+        </Grid>
+      </Grid>
+    </Container>
+  );
 }
 
-export default home
+export default Home;
