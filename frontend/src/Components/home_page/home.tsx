@@ -9,7 +9,7 @@ const Home: React.FC = () => {
             <img
               src="wallpaper.jpg"
               alt="wallpaper"
-              style={{ width: '100%', height: 'auto', borderRadius: '8px' }} // 适当的样式
+              style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
             />
           </Paper>
         </Grid>
