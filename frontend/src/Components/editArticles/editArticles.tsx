@@ -1,6 +1,7 @@
+// EditArticle.tsx
 import React, { useState, useEffect } from 'react';
-import { Button, TextField, Box, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
+import ArticleForm from "../articleForm/articleForm";
 
 const EditArticle: React.FC = () => {
     const [author, setAuthor] = useState("");
@@ -64,82 +65,21 @@ const EditArticle: React.FC = () => {
     };
 
     const handleBack = () => {
-        navigate("/articles"); 
+        navigate("/articles");
     };
 
     return (
-        <Box sx={{ padding: 2, bgcolor: 'background.default', color: 'text.primary' }}>
-            <Typography variant="h4" gutterBottom>
-                Edit Article
-            </Typography>
-            <TextField
-                autoComplete="off"
-                label="Author"
-                variant="outlined"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-                fullWidth
-                margin="normal"
-                InputProps={{
-                    style: {
-                        color: 'text.primary', 
-                    },
-                }}
-                InputLabelProps={{
-                    style: {
-                        color: 'text.secondary', 
-                    },
-                }}
-            />
-            <TextField
-                autoComplete="off"
-                label="Title"
-                variant="outlined"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                fullWidth
-                margin="normal"
-                InputProps={{
-                    style: {
-                        color: 'text.primary',
-                    },
-                }}
-                InputLabelProps={{
-                    style: {
-                        color: 'text.secondary', 
-                    },
-                }}
-            />
-            <TextField
-                autoComplete="off"
-                label="Content"
-                variant="outlined"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                multiline
-                rows={10} 
-                fullWidth
-                margin="normal"
-                InputProps={{
-                    style: {
-                        color: 'text.primary', 
-                    },
-                }}
-                InputLabelProps={{
-                    style: {
-                        color: 'text.secondary', 
-                    },
-                }}
-            />
-            <Box sx={{ display: 'flex', gap: 2, marginTop: 2 }}>
-                <Button variant="outlined" onClick={handleSave}>
-                    Save
-                </Button>
-                <Button variant="outlined" onClick={handleBack}>
-                    Back
-                </Button>
-            </Box>
-        </Box>
+        <ArticleForm
+            author={author}
+            title={title}
+            content={content}
+            setAuthor={setAuthor}
+            setTitle={setTitle}
+            setContent={setContent}
+            onSave={handleSave}
+            onBack={handleBack}
+            titleText="Edit Article"
+        />
     );
 };
 

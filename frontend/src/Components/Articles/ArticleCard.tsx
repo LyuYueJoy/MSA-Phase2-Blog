@@ -1,4 +1,3 @@
-// src/Components/Article/ArticleCard.tsx
 import React from "react";
 import { IArticles } from "../../Models/articles";
 import { Box, Typography, Paper, Button } from "@mui/material";

@@ -1,6 +1,7 @@
+// AddArticle.tsx
 import React, { useState } from "react";
-import { Button, TextField, Box, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ArticleForm from "../articleForm/articleForm";
 
 const AddArticle: React.FC = () => {
     const [author, setAuthor] = useState("");
@@ -40,94 +41,23 @@ const AddArticle: React.FC = () => {
             console.error("Error saving article:", error);
         }
     };
-    // Back to article page
+
     const handleBack = () => {
-        navigate("/articles"); 
+        navigate("/articles");
     };
 
     return (
-        <Box sx={{ padding: 2, bgcolor: 'background.default', minHeight: '100vh' }}>
-            <Typography variant="h4" gutterBottom color="text.primary">
-                Add Article
-            </Typography>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
-                    <TextField
-                        fullWidth
-                        autoComplete="off"
-                        label="Title"
-                        variant="outlined"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        InputProps={{
-                            style: {
-                                color: 'text.primary',
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: 'text.secondary',
-                            },
-                        }}
-                        sx={{ minHeight: '100px' }} 
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        fullWidth
-                        autoComplete="off"
-                        label="Author"
-                        variant="outlined"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
-                        InputProps={{
-                            style: {
-                                color: 'text.primary',
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: 'text.secondary',
-                            },
-                        }}
-                        sx={{ minHeight: '100px' }} 
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        fullWidth
-                        autoComplete="off"
-                        label="Content"
-                        variant="outlined"
-                        multiline
-                        rows={10} 
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                        InputProps={{
-                            style: {
-                                color: 'text.primary',
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: 'text.secondary',
-                            },
-                        }}
-                        sx={{ minHeight: '300px' }} 
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <Box sx={{ display: 'flex', gap: 2 }}>
-                        <Button variant="outlined" onClick={handleSave}>
-                            Save
-                        </Button>
-                        <Button variant="outlined" onClick={handleBack}>
-                            Back
-                        </Button>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Box>
+        <ArticleForm
+            author={author}
+            title={title}
+            content={content}
+            setAuthor={setAuthor}
+            setTitle={setTitle}
+            setContent={setContent}
+            onSave={handleSave}
+            onBack={handleBack}
+            titleText="Add Article"
+        />
     );
 };
 
