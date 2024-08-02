@@ -41,22 +41,35 @@ const ArticleDetail: React.FC = () => {
         Back to Articles
       </Button>
       <Paper elevation={3} sx={{ padding: 2, marginTop: 2 }}>
+      <Box sx={{ textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>
           {article.title}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
           {article.author}
         </Typography>
-        <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
-          {article.content}
-        </Typography>
+      </Box>
+      <Typography 
+        variant="body1" 
+        paragraph 
+        sx={{ 
+          whiteSpace: 'pre-line', 
+          marginTop: 2, 
+          marginLeft: 4, 
+          textAlign: 'left' 
+        }}
+      >
+        {article.content}
+      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, marginTop: 2 }}>
         <Typography variant="body2" color="textSecondary">
           Created: {formatDate(article.createdAt)}
         </Typography>
         <Typography variant="body2" color="textSecondary">
           Updated: {formatDate(article.updateAt)}
         </Typography>
-      </Paper>
+      </Box>
+    </Paper>
     </Box>
   );
 };

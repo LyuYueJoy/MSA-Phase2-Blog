@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ArticleList from "./ArticleList";
-import { TextField, Box } from "@mui/material";
+import { TextField, Box, Typography, Grid } from "@mui/material";
 
 const Article: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +11,12 @@ const Article: React.FC = () => {
 
   return (
     <div>
+      <Grid item xs={12} sx={{ textAlign: 'center', mt: 2 }}>
+        <Typography variant="h4" gutterBottom>
+          Article List
+        </Typography>
+      </Grid>
+
       <Box sx={{ padding: 2 }}>
         <TextField
           label="Search Articles"
@@ -18,7 +24,25 @@ const Article: React.FC = () => {
           fullWidth
           value={searchQuery}
           onChange={handleSearchChange}
-          sx={{ mb: 2 }} // Margin-bottom for spacing
+          sx={{
+            mb: 2, // Margin-bottom for spacing
+            backgroundColor: theme => theme.palette.background.paper,
+            color: theme => theme.palette.text.primary,
+            '& .MuiInputLabel-root': {
+              color: theme => theme.palette.text.primary,
+            },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: theme => theme.palette.text.primary,
+              },
+              '&:hover fieldset': {
+                borderColor: theme => theme.palette.primary.main,
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: theme => theme.palette.primary.main,
+              },
+            },
+          }}
         />
       </Box>
       <ArticleList searchQuery={searchQuery} />

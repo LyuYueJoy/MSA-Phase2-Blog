@@ -26,9 +26,6 @@ const ArticleForm: React.FC<ArticleFormProps> = ({
 }) => {
     return (
         <Box sx={{ padding: 2, bgcolor: 'background.default', minHeight: '100vh' }}>
-            <Typography variant="h4" gutterBottom color="text.primary">
-                {titleText}
-            </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TextField

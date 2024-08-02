@@ -43,11 +43,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ searchQuery }) => {
 
   return (
     <Grid container spacing={2} sx={{ padding: 2 }}>
-      <Grid item xs={12}>
-        <Typography variant="h4" gutterBottom>
-          Article List
-        </Typography>
-      </Grid>
+
       {filteredArticles.length === 0 ? (
         <Grid item xs={12}>
           <Typography variant="h6">No Articles</Typography>
