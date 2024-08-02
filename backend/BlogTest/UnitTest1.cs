@@ -54,7 +54,68 @@ namespace backend.Tests
             Assert.Single(articles);
             Assert.Equal("Test Article", articles.First().Title);
         }
+        [Fact]
+        //get art by id
+        public async Task GetArticleByIdAsync_ReturnsCorrectArticle()
+        {
+            await SeedDatabaseAsync();
+            var articleId = 1;
 
- 
+            var article = await _repo.GetArticleByIdAsync(articleId);
+
+            Assert.NotNull(article);
+            Assert.Equal(articleId, article.Id);
+            Assert.Equal("Test Article", article.Title);
+            Assert.Equal("Test Content", article.Content);
+            Assert.Equal("Test Author", article.Author);
+        }
+
+        [Fact]
+        public async Task AddArticleAsync_AddsArticleSuccessfully()
+        {
+            await SeedDatabaseAsync();
+            var article = new Article
+            {
+                Title = "Sample Title",
+                Content = "Sample Content",
+                Author = "Sample Author",
+                CreatedAt = DateTime.Now,
+                UpdateAt = DateTime.Now
+            };
+
+            var addedArticle = await _repo.AddArticleAsync(article);
+
+            Assert.NotNull(addedArticle);
+            Assert.Equal(article.Title, addedArticle.Title);
+            Assert.Equal(article.Content, addedArticle.Content);
+            Assert.Equal(article.Author, addedArticle.Author);
+        }
+
+        [Fact]
+        public async Task UpdateArticleAsync_UpdatesArticleSuccessfully()
+        {
+            await SeedDatabaseAsync();
+            var existingArticle = await _repo.GetArticleByIdAsync(1);
+            existingArticle.Title = "Updated Title";
+
+            var updatedArticle = await _repo.UpdateArticleAsync(existingArticle);
+            var articleFromDb = await _repo.GetArticleByIdAsync(1);
+
+            Assert.NotNull(updatedArticle);
+            Assert.Equal("Updated Title", articleFromDb.Title);
+        }
+
+        [Fact]
+        public async Task RemoveArticleAsync_RemovesArticleSuccessfully()
+        {
+            await SeedDatabaseAsync();
+            var articleToRemove = await _repo.GetArticleByIdAsync(1);
+
+            var removedArticle = await _repo.RemoveArticleAsync(articleToRemove);
+            var articleFromDb = await _repo.GetArticleByIdAsync(1);
+            Assert.NotNull(removedArticle);
+            Assert.Null(articleFromDb);
+        }
+
     }
 }
