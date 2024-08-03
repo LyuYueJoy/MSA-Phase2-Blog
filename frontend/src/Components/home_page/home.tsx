@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Grid, Typography, Paper, Avatar } from "@mui/material";
+import { Container, Grid, Typography, Paper } from "@mui/material";
 const Home: React.FC = () => {
   return (
     <Container maxWidth="lg" sx={{ my: 4 }}>

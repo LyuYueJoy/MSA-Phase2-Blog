@@ -1,1 +1,1 @@
-export const getArticlessUrl = 'https://localhost:7034/api/Articles';
+export const getArticlessUrl = 'http://localhost:5162/api/Articles';

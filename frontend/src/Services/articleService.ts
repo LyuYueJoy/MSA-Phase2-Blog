@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:7034/api/Articles";
+const API_URL = "http://localhost:5162/api/Articles";
 
 export const createArticle = async (article: { author: string; title: string; content: string }) => {
     const response = await fetch(API_URL, {

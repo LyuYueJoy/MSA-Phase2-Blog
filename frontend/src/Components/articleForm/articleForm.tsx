@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Box, Grid, Button, Typography } from '@mui/material';
+import { TextField, Box, Grid, Button } from '@mui/material';
 
 interface ArticleFormProps {
     author: string;
@@ -22,7 +22,6 @@ const ArticleForm: React.FC<ArticleFormProps> = ({
     setContent,
     onSave,
     onBack,
-    titleText
 }) => {
     return (
         <Box sx={{ padding: 2, bgcolor: 'background.default', minHeight: '100vh' }}>
