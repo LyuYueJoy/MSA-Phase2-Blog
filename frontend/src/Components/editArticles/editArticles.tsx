@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircularProgress, Snackbar, Typography } from '@mui/material';
+import { CircularProgress, Grid, Snackbar, Typography } from '@mui/material';
 import ArticleForm from '../articleForm/articleForm';
 import useEditArticle from '../../Hooks/useEditArticle';
 
@@ -19,7 +19,14 @@ const EditArticle: React.FC = () => {
 
     return (
         <div>
-            <Typography variant="h4">Edit Article</Typography>
+            <Grid container spacing={2} sx={{ padding: 2 }}>
+
+            <Grid item xs={12} sx={{ textAlign: 'center', mt: 2 }}>
+                <Typography variant="h4" gutterBottom>
+                    Edit Article
+                </Typography>
+            </Grid>     
+            </Grid>        
             {loading && <CircularProgress />}
             {error && (
                 <Snackbar
@@ -40,6 +47,7 @@ const EditArticle: React.FC = () => {
                 onBack={handleBack}
                 titleText="Edit Article"
             />
+            
         </div>
     );
 };
